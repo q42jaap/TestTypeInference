@@ -99,10 +99,12 @@ namespace TestTypeInference5
 
 			new ExperiencedZooKeeper<Reptile>()
 				.Name("Eric")
-				.FeedAnimal(() => reptile)
+				.FeedAnimal(reptile)
+				.FeedAnimal(new Reptile())
+				// I wanted to write this line as:
+				//.Favorite(r => r == reptile)
 				.Favorite<ExperiencedZooKeeper<Reptile>, Reptile>(r => r == reptile)
 				.CureAnimal(reptile);
-
 		}
 	}
 
